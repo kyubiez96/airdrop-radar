@@ -1,29 +1,18 @@
 {
   "seen": [
-    "gh:202303334/diamante-automation-suite",
-    "gh:abhirajb-debug/acki-nacki-harvester",
-    "gh:adealta/humanity-protocol-daily-claimer",
-    "gh:ariyan45160/dkargo-dispenser",
-    "gh:badawi2023/boxxer-airdrop-automator",
     "gh:bitsmith826/auto-claim-rialo-faucet",
-    "gh:chaloyeee/auto-stake-sentinel",
-    "gh:deepakkankure/gopher-governance-toolkit",
     "gh:erwindobp98/teqoin",
     "gh:fearchrist5577/auto-claimer",
-    "gh:ghaderhassan38-sudo/interlink-claim-optimizer",
     "gh:h4rkl/airdrop-claim-bot",
-    "gh:jask177/ekox-claim-assistant",
-    "gh:onoffgrid/kite-ai-automata-suite",
-    "gh:rmd122e/dusted-referral-suite",
     "gh:soroushdevv/cft-dashboard",
     "gh:thund3rbreath/sixseven-bot",
     "gh:tosinchukwu/airdrop-farming-2025",
-    "gh:yarzarhyo/blum-airdrop-assistant",
     "io:https://airdrops.io/acepyr/",
     "io:https://airdrops.io/ammora/",
     "io:https://airdrops.io/axis-robotics/",
     "io:https://airdrops.io/baibai/",
     "io:https://airdrops.io/base/",
+    "io:https://airdrops.io/bitvavo/",
     "io:https://airdrops.io/blackboard/",
     "io:https://airdrops.io/cambria/",
     "io:https://airdrops.io/dawn/",
@@ -61,6 +50,6 @@
     "io:https://airdrops.io/wick/",
     "io:https://airdrops.io/worldie/"
   ],
-  "runs": 3,
-  "last_new": 0
+  "runs": 4,
+  "last_new": 1
 }
