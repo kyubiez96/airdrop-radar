@@ -23,6 +23,7 @@ permanent database, and publishes a live report.
 |---|---|
 | `radar.py` | Canonical scanner |
 | `daemon.py` | Scheduler loop |
+| `patch_monitor.py` | Idempotent deploy patch for the `/monitor` report URL |
 | `state.json` | Dedup seen-set + run counter |
 | `airdrops.json` | Full entry database |
 | `REPORT.md` | Live report (committed to GitHub) |
@@ -56,3 +57,20 @@ crontab -e
 ```
 
 Requires `cronie`/`termux-services`.
+
+## Deploy the `/monitor` report URL
+
+`eksi.biz.id/monitor` is served by the `api-dashboard` Cloudflare Worker,
+whose inline HTML fetches the report via a client-side JS URL. If that URL
+is ever regenerated or pointed at a dead host, re-point it:
+
+```sh
+python3 patch_monitor.py
+# override the report URL:
+REPORT_URL=https://raw.githubusercontent.com/kyubiez96/airdrop-radar/main/REPORT.md python3 patch_monitor.py
+```
+
+The script downloads the live worker bundle, patches the report fetch URL
+in place, redeploys, and is idempotent. Credentials resolve from
+`CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` env vars or the original
+token files under `~/storage/downloads/tokeb/`.
