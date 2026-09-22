@@ -70,6 +70,55 @@ BLOCKED_REPOS = {
     "abhirajb-debug/acki-nacki-harvester",
 }
 
+# Conservative low-quality signal: over-the-top bot-marketing with zero stars.
+SCAM_DESC_PAT = re.compile(
+    r"auto[- ]?(claim|farm|faucet|stak)[a-z ]*20(25|26)|multi[- ]?(wallet|account)|proxy bot",
+    re.IGNORECASE,
+)
+
+
+def _fetch_raw(url, timeout=8):
+    """Fetch a raw.githubusercontent.com file as bytes, or None on any failure."""
+    if not url:
+        return None
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "AirdropRadarBot/2.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.read(65536)
+    except Exception:
+        return None
+
+
+def repo_is_scam(full_name):
+    """Proactive phishing-farm detection by content signature, name-agnostic.
+
+    The scam template ships a root `index.html` that is a single <script>
+    whose only payload is a XOR-obfuscated blob (`k=atob(...)`, `d=atob(...)`)
+    which decodes to a fake "Secure Download" page that then redirects to a
+    credential-harvest site. raw.githubusercontent.com is a CDN (not the
+    API), so probing a few raw files per candidate is cheap and rate-limit free.
+    """
+    if not full_name:
+        return False
+    for branch in ("main", "master"):
+        idx = _fetch_raw(f"https://raw.githubusercontent.com/{full_name}/{branch}/index.html")
+        if idx is not None:
+            break
+    if idx is None:
+        return False
+    # signature 1: XOR-obfuscation bootstrap — two atob() keys + payload
+    #   `var k=atob('...'),d=atob('...')` ... `charCodeAt` ... `@textDecoder`
+    if b"atob(" in idx and idx.count(b"atob(") >= 2:
+        if b"charCodeAt" in idx or b"fromCharCode" in idx or b"TextDecoder" in idx:
+            return True
+    # signature 2: decoded page must redirect; the raw file also often carries
+    # a known harvest domain or fake .zip redirect literal
+    if b"location.href" in idx or b"window.location" in idx:
+        for m in (b"unlocktool.click", b".zip", b"download"):
+            if m in idx:
+                return True
+    return False
+
 def now():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -144,6 +193,10 @@ def fetch_github_repos():
             if full.lower() in BLOCKED_REPOS:
                 continue
             seen_names.add(full)
+            # proactive content-signature check: skip new phishing-farm clones
+            if repo_is_scam(full):
+                print(f"[!] skipping suspected scam repo: {full}")
+                continue
             out.append(
                 {
                     "id": "gh:" + full.lower(),
