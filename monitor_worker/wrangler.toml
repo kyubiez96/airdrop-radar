@@ -1,0 +1,21 @@
+name = "eksi-biz-airdrop-monitor"
+main = "src/index.ts"
+compatibility_date = "2025-06-01"
+workers_dev = false
+
+# Cloudflare account and auth
+account_id = "3f3725ffa991f979eac0117dc6c33de6"
+
+# Routes
+[[routes]]
+pattern = "eksi.biz.id/monitor/*"
+zone_name = "eksi.biz.id"
+
+# Static assets
+[assets]
+directory = "./src/web"
+run_worker_first = true
+binding = "ASSETS"
+
+[vars]
+APP_NAME = "Airdrop Monitor"

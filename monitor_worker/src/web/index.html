@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airdrop Radar Monitor - eksi.biz.id</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #13233f 50%, #1e293b 100%);
+            color: #38bdf8;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #334155;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: #10b981;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+        }
+        h1 {
+            font-size: 28px;
+            color: #f43f5e;
+            font-weight: 700;
+        }
+        .badge {
+            background: #10b981;
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .info {
+            color: #94a3b8;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .report-box {
+            background: #090d16;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        pre {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            color: #e2e8f0;
+        }
+        .loading {
+            color: #64748b;
+            text-align: center;
+            padding: 40px;
+            font-size: 16px;
+        }
+        .error {
+            color: #f43f5e;
+            text-align: center;
+            padding: 40px;
+            font-size: 16px;
+            background: #1e293b;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">AR</div>
+            <div>
+                <h1>Airdrop Radar Monitor</h1>
+                <div class="badge">Live Intelligence</div>
+            </div>
+        </div>
+        
+        <div class="info">
+            <strong>EKSİ BİZ ID</strong> - Real-time automated free airdrop intelligence &amp; testnet scanner<br>
+            Powered by Firecrawl API + GitHub Airdrop Radar<br>
+            <span class="badge" style="background: #3d8bfd; color: white;">Auto-Sync</span> Latest updates every scan cycle
+        </div>
+        
+        <div class="report-box">
+            <div id="loading" class="loading">
+                <div style="margin-bottom: 15px; font-size: 40px;">📡</div>
+                Loading latest intelligence...
+            </div>
+            <pre id="content" style="display: none;"></pre>
+            <div id="error" class="error" style="display: none;">Failed to load report.</div>
+        </div>
+    </div>
+
+    <script>
+        const VERCEL_URL = 'https://raw.githubusercontent.com/kyubiez96/airdrop-radar/main/REPORT.md';
+        
+        fetch(VERCEL_URL)
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
+            })
+            .then(text => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                document.getElementById('content').textContent = text;
+            })
+            .catch(err => {
+                console.error('Fetch error:', err);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            });
+    </script>
+</body>
+</html>
