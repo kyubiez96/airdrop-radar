@@ -80,14 +80,34 @@ def tg(method, payload):
         return json.loads(r.read().decode("utf-8", "replace"))
 
 
+def esc(s):
+    """Escape a user/DB-derived string for Telegram HTML parse_mode."""
+    return (str(s)
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;"))
+
+
 def reply(chat_id, text):
-    text = html.escape(text)
-    ts = "AirdropRadarBot"
-    try:
-        tg("sendMessage", {"chat_id": chat_id, "text": text,
-                           "disable_web_page_preview": "true"})
-    except Exception as e:
-        print(f"[!] sendMessage failed @{chat_id}: {e}")
+    # Callers may already include <b>/<a> tags; text must be pre-escaped
+    # with esc() anywhere untrusted data (names, search terms) is inserted.
+    # Split on paragraph boundaries to stay under Telegram's 4096 limit.
+    chunks = []
+    cur = ""
+    for line in text.split("\n"):
+        if len(cur) + len(line) + 1 > 4000:
+            chunks.append(cur.rstrip())
+            cur = ""
+        cur += line + "\n"
+    if cur.strip():
+        chunks.append(cur.rstrip())
+    for c in chunks:
+        try:
+            tg("sendMessage", {"chat_id": chat_id, "text": c,
+                               "parse_mode": "HTML",
+                               "disable_web_page_preview": "true"})
+        except Exception as e:
+            print(f"[!] sendMessage failed @{chat_id}: {e}")
 
 
 # ---------------------------------------------------------------- data helpers
@@ -113,9 +133,12 @@ def find_entries(term):
 
 def fmt_entry(e):
     t = e.get("kind", "?")
+    name = esc(e.get("name", ""))
+    url = esc(e.get("url", ""))
+    slug = esc(e.get("slug", ""))
     if t == "drop":
-        return f"🎁 {e['name']} — /guide {e['slug']}\n   {e['url']}"
-    return f"🛠 {e['name']}\n   {e['url']}"
+        return f"🎁 {name} — /guide {slug}\n   {url}"
+    return f"🛠 {name}\n   {url}"
 
 
 # ---------------------------------------------------------------- guide (firecrawl)
@@ -161,12 +184,31 @@ def extract_howto(md, name):
     return body.strip()
 
 
+def md_to_tg_html(text):
+    """Convert common Firecrawl Markdown to Telegram-safe HTML.
+
+    Order matters: escape user text first, then inject tags.
+    """
+    if not text:
+        return ""
+    # 1. escape HTML-sensitive chars in the raw markdown
+    t = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    # 2. convert strong **x** -> <b>x</b>
+    t = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", t)
+    # 3. convert headings (line-start #) -> <b>line</b>
+    t = re.sub(r"(?m)^#{1,6}\s*(.+)$", r"<b>\1</b>", t)
+    # 4. convert inline links [text](url) -> <a href="url">text</a>
+    #    (hrefs were already &-escaped, so no raw & in URL breaks tags)
+    t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
+    return t
+
+
 # ---------------------------------------------------------------- command handlers
 def cmd_start(chat_id, uid):
     _, ads = load_db()
     done = load_json(DONE_PATH, {}).get(str(uid), [])
     text = (
-        "🤖 *AirdropRadarBot*\n\n"
+        "🤖 <b>AirdropRadarBot</b>\n\n"
         f"Tracked airdrops: {len(ads)}\n"
         f"You've marked done: {len(done)}\n\n"
         "/list — latest airdrops\n"
@@ -192,7 +234,7 @@ def cmd_list(chat_id, args):
     if not drops:
         reply(chat_id, "No airdrops tracked yet.")
         return
-    lines = [f"*Latest {len(drops)} airdrops:*"]
+    lines = [f"<b>Latest {len(drops)} airdrops:</b>"]
     for e in drops:
         lines.append(fmt_entry(e))
     reply(chat_id, "\n\n".join(lines))
@@ -204,10 +246,11 @@ def cmd_search(chat_id, args):
         reply(chat_id, "Usage: /search <name-or-slug>")
         return
     hits = find_entries(term)[:15]
+    t = esc(term)
     if not hits:
-        reply(chat_id, f"No match for “{term}”.")
+        reply(chat_id, f"No match for “{t}”.")
         return
-    lines = [f"*Matches for “{term}”:*"]
+    lines = [f"<b>Matches for “{t}”:</b>"]
     for e in hits:
         lines.append(fmt_entry(e))
     reply(chat_id, "\n\n".join(lines))
@@ -220,15 +263,17 @@ def cmd_guide(chat_id, args):
         return
     e = find_entry(slug)
     if not e:
-        reply(chat_id, f"No airdrop with slug “{slug}”. Try /search.")
+        reply(chat_id, f"No airdrop with slug “{esc(slug)}”. Try /search.")
         return
-    reply(chat_id, f"⏳ Fetching guide for *{e['name']}* … this may take a few seconds.")
+    name = esc(e["name"])
+    url = esc(e["url"])
+    reply(chat_id, f"⏳ Fetching guide for <b>{name}</b> … this may take a few seconds.")
     md = scrape_guide(e["url"])
     howto = extract_howto(md, e["name"])
     if not howto:
-        reply(chat_id, f"{e['name']}\n{e['url']}\n\n(no How-to section found — check the link directly.)")
+        reply(chat_id, f"<b>{name}</b>\n{url}\n\n(no How-to section found — check the link directly.)")
         return
-    reply(chat_id, f"*{e['name']}* — claim guide\n\n{howto}\n\nMore: {e['url']}")
+    reply(chat_id, f"<b>{name}</b> — claim guide\n\n{md_to_tg_html(howto)}\n\nMore: {url}")
 
 
 def cmd_tools(chat_id):
@@ -237,7 +282,7 @@ def cmd_tools(chat_id):
     if not tools:
         reply(chat_id, "No tools tracked yet.")
         return
-    lines = ["*GitHub farming tools:*"]
+    lines = ["<b>GitHub farming tools:</b>"]
     for e in tools[:15]:
         lines.append(fmt_entry(e))
     reply(chat_id, "\n\n".join(lines))
@@ -247,17 +292,17 @@ def cmd_done(chat_id, uid, args):
     slug = " ".join(args).strip().lower()
     e = find_entry(slug)
     if not e:
-        reply(chat_id, f"No drop “{slug}”. /search to find the right slug.")
+        reply(chat_id, f"No drop “{esc(slug)}”. /search to find the right slug.")
         return
     data = load_json(DONE_PATH, {})
     my = data.get(str(uid), [])
     if slug in my:
-        reply(chat_id, f"{e['name']} was already marked done.")
+        reply(chat_id, f"{esc(e['name'])} was already marked done.")
         return
     my.append(slug)
     data[str(uid)] = my
     save_json(DONE_PATH, data)
-    reply(chat_id, f"✅ Marked *{e['name']}* as claimed/done.")
+    reply(chat_id, f"✅ Marked <b>{esc(e['name'])}</b> as claimed/done.")
 
 
 def cmd_todo(chat_id, uid):
@@ -267,7 +312,7 @@ def cmd_todo(chat_id, uid):
     if not drops:
         reply(chat_id, "All tracked airdrops marked done. 🎉")
         return
-    lines = [f"*Remaining ({len(drops)}):*"]
+    lines = [f"<b>Remaining ({len(drops)}):</b>"]
     for e in drops[:20]:
         lines.append(fmt_entry(e))
     reply(chat_id, "\n\n".join(lines))
@@ -284,7 +329,7 @@ def cmd_new(chat_id):
     if not top:
         reply(chat_id, "Nothing new.")
         return
-    lines = ["*Newest in the radar:*"]
+    lines = ["<b>Newest in the radar:</b>"]
     for e in top:
         lines.append(fmt_entry(e))
     reply(chat_id, "\n\n".join(lines))

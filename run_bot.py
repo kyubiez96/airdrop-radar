@@ -11,7 +11,7 @@ import sys
 import time
 
 while True:
-    print("=== starting bot.py ===")
-    rc = subprocess.run([sys.executable, "bot.py"]).returncode
-    print(f"=== bot.py exited rc={rc}; restarting in 5s ===")
+    print("=== starting bot.py ===", flush=True)
+    rc = subprocess.run([sys.executable, "-u", "bot.py"]).returncode
+    print(f"=== bot.py exited rc={rc}; restarting in 5s ===", flush=True)
     time.sleep(5)
