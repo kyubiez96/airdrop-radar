@@ -247,6 +247,12 @@ def notify(title, body):
          "--priority", "high"],
         capture_output=True,
     )
+    # Telegram (best effort; skips silently if no token configured)
+    try:
+        import tbnotify
+        tbnotify.send_telegram(f"🚀 {title}\n{body}")
+    except Exception as e:
+        print(f"[!] telegram notify error: {e}")
 
 # ---------------------------------------------------------------- git
 def git_push():

@@ -12,9 +12,12 @@ permanent database, and publishes a live report.
    - Diffs new entries against `state.json` (`seen` set), merges into
      `airdrops.json` (the full DB).
    - Rewrites `REPORT.md` and commits + pushes to GitHub.
-   - Fires a `termux-notification` only when new entries appear.
+   - Fires a `termux-notification` **and a Telegram message** only when new
+     entries appear.
 2. **`daemon.py`** — runs `radar.py` every 2 hours.
-3. **`monitor_worker/`** — Cloudflare Worker that serves a dashboard at
+3. **`bot.py`** — interactive Telegram bot: browse/search airdrops, fetch
+   step-by-step claim guides, track what you've claimed.
+4. **`monitor_worker/`** — Cloudflare Worker that serves a dashboard at
    `eksi.biz.id/monitor/*`.
 
 ## Files
@@ -23,9 +26,13 @@ permanent database, and publishes a live report.
 |---|---|
 | `radar.py` | Canonical scanner |
 | `daemon.py` | Scheduler loop |
+| `bot.py` | Telegram bot (long-polling) |
+| `run_bot.py` | Bot runner w/ auto-restart |
+| `tbnotify.py` | Telegram notify helper (shared) |
 | `patch_monitor.py` | Idempotent deploy patch for the `/monitor` report URL |
 | `state.json` | Dedup seen-set + run counter |
 | `airdrops.json` | Full entry database |
+| `claimed.json` | Per-user claimed/done list (gitignored) |
 | `REPORT.md` | Live report (committed to GitHub) |
 | `.env` | Secrets (gitignored) |
 | `monitor_worker/` | CF Worker dashboard |
@@ -38,15 +45,19 @@ pkg install python git termux-api gh
 gh auth login                 # git uses the gh credential helper (no PAT in repo)
 
 # secrets
-cp .env.example .env          # fill FIRECRAWL_API_KEY
+cp .env.example .env          # fill FIRECRAWL_API_KEY + TELEGRAM_BOT_TOKEN
 pip install nothing           # stdlib only
 
 # one scan
 python3 radar.py
 
-# continuous
+# continuous scanner
 python3 daemon.py
 # or: termux-wake-lock && nohup python3 daemon.py >/dev/null 2>&1 &
+
+# Telegram bot (separate process)
+python3 run_bot.py
+# or: nohup python3 run_bot.py >/tmp/airdrop_bot.log 2>&1 &
 ```
 
 ## Cron alternative
@@ -57,6 +68,23 @@ crontab -e
 ```
 
 Requires `cronie`/`termux-services`.
+
+## Telegram bot
+
+Commands:
+
+| Command | What it does |
+|---|---|
+| `/start` | Status + help |
+| `/list [n]` | Latest tracked airdrops |
+| `/search term` | Find a drop by name/slug |
+| `/guide slug` | Full step-by-step claim guide (Firecrawl, live) |
+| `/tools` | GitHub farming tools |
+| `/done slug` | Mark a drop as claimed |
+| `/todo` | Drops not yet marked done |
+| `/new` | Newest radar finds |
+
+Access is restricted to `TELEGRAM_ALLOWED_USERS` (comma-separated IDs).
 
 ## Deploy the `/monitor` report URL
 
