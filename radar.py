@@ -53,6 +53,23 @@ def load_env():
 load_env()
 FIRECRAWL_KEY = os.getenv("FIRECRAWL_API_KEY", "")
 
+# Repos identified as phishing/token-drainer "download" farms (unlocktool.click
+# redirect templates). New clones of the same scam skip automatically.
+BLOCKED_REPOS = {
+    "onoffgrid/kite-ai-automata-suite",
+    "deepakkankure/gopher-governance-toolkit",
+    "yarzarhyo/blum-airdrop-assistant",
+    "202303334/diamante-automation-suite",
+    "ariyan45160/dkargo-dispenser",
+    "chaloyeee/auto-stake-sentinel",
+    "ghaderhassan38-sudo/interlink-claim-optimizer",
+    "jask177/ekox-claim-assistant",
+    "badawi2023/boxxer-airdrop-automator",
+    "rmd122e/dusted-referral-suite",
+    "adealta/humanity-protocol-daily-claimer",
+    "abhirajb-debug/acki-nacki-harvester",
+}
+
 def now():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -123,6 +140,8 @@ def fetch_github_repos():
         for item in gh_search(q):
             full = item.get("full_name", "")
             if not full or full in seen_names:
+                continue
+            if full.lower() in BLOCKED_REPOS:
                 continue
             seen_names.add(full)
             out.append(
@@ -295,12 +314,16 @@ def main():
     for e in io_entries + gh_entries:
         if e["id"] not in by_id:
             by_id[e["id"]] = e
+    # drop any previously-known entry that is now blacklisted
+    for eid in list(by_id):
+        if eid.startswith("gh:") and eid[3:].lower() in BLOCKED_REPOS:
+            del by_id[eid]
     db["airdrops"] = list(by_id.values())
     db["last_scan"] = utc_stamp()
 
     save_json(DB_PATH, db)
 
-    state["seen"] = sorted(seen | current_ids)
+    state["seen"] = sorted((seen | current_ids) - {eid for eid in current_ids if eid.startswith("gh:") and eid[3:].lower() in BLOCKED_REPOS})
     state["runs"] = state.get("runs", 0) + 1
     state["last_new"] = len(new_ids)
     save_json(STATE_PATH, state)
