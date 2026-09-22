@@ -1,0 +1,583 @@
+{
+  "airdrops": [
+    {
+      "id": "gh:onoffgrid/kite-ai-automata-suite",
+      "kind": "tooling",
+      "name": "OnOffGrid/Kite-AI-Automata-Suite",
+      "url": "https://github.com/OnOffGrid/Kite-AI-Automata-Suite",
+      "desc": "\ud83d\ude80 Ultimate AI Airdrop Bot 2026 - Multi-Wallet & Auto-Farm \ud83e\udd16",
+      "stars": 0,
+      "updated": "2026-09-22T00:28:49Z",
+      "first_seen": "2026-09-22T02:53:10Z",
+      "slug": "kite-ai-automata-suite"
+    },
+    {
+      "id": "gh:deepakkankure/gopher-governance-toolkit",
+      "kind": "tooling",
+      "name": "deepakkankure/Gopher-Governance-Toolkit",
+      "url": "https://github.com/deepakkankure/Gopher-Governance-Toolkit",
+      "desc": "Gopher Testnet 2026: Ultimate Airdrop & Staking Bot Suite \ud83d\ude80\ud83e\udd16",
+      "stars": 0,
+      "updated": "2026-09-22T00:24:51Z",
+      "first_seen": "2026-09-22T02:53:10Z",
+      "slug": "gopher-governance-toolkit"
+    },
+    {
+      "id": "gh:tosinchukwu/airdrop-farming-2025",
+      "kind": "tooling",
+      "name": "tosinchukwu/Airdrop-Farming-2025",
+      "url": "https://github.com/tosinchukwu/Airdrop-Farming-2025",
+      "desc": "A Detail Analysis of Airdrop am Farming this 2025 - DEPIN, Waitlist, Testnet",
+      "stars": 1,
+      "updated": "2026-08-19T22:54:36Z",
+      "first_seen": "2026-09-22T02:53:10Z",
+      "slug": "airdrop-farming-2025"
+    },
+    {
+      "id": "gh:soroushdevv/cft-dashboard",
+      "kind": "tooling",
+      "name": "SoroushDevv/CFT-Dashboard",
+      "url": "https://github.com/SoroushDevv/CFT-Dashboard",
+      "desc": "Crypto Farm Tracker \u2014 track airdrops, testnets, staking & farming projects with rewards, filters, and an admin dashboard.",
+      "stars": 0,
+      "updated": "2026-08-15T11:21:22Z",
+      "first_seen": "2026-09-22T02:53:10Z",
+      "slug": "cft-dashboard"
+    },
+    {
+      "id": "gh:yarzarhyo/blum-airdrop-assistant",
+      "kind": "tooling",
+      "name": "Yarzarhyo/Blum-Airdrop-Assistant",
+      "url": "https://github.com/Yarzarhyo/Blum-Airdrop-Assistant",
+      "desc": "\ud83d\ude80 Best Free Blum Airdrop Bot 2026 - Auto Claim & Farm Guide",
+      "stars": 1,
+      "updated": "2026-09-22T01:25:11Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "blum-airdrop-assistant"
+    },
+    {
+      "id": "gh:202303334/diamante-automation-suite",
+      "kind": "tooling",
+      "name": "202303334/Diamante-Automation-Suite",
+      "url": "https://github.com/202303334/Diamante-Automation-Suite",
+      "desc": "\ud83e\udd16 Telegram Airdrop Bot 2026 - Auto Claim & Crypto Rewards Script",
+      "stars": 0,
+      "updated": "2026-09-22T00:32:22Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "diamante-automation-suite"
+    },
+    {
+      "id": "gh:ariyan45160/dkargo-dispenser",
+      "kind": "tooling",
+      "name": "ariyan45160/dKargo-dispenser",
+      "url": "https://github.com/ariyan45160/dKargo-dispenser",
+      "desc": "\ud83d\ude80 Free Auto Faucet Bot 2026 - Crypto Claim Tool & Script",
+      "stars": 0,
+      "updated": "2026-09-22T00:30:32Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "dkargo-dispenser"
+    },
+    {
+      "id": "gh:chaloyeee/auto-stake-sentinel",
+      "kind": "tooling",
+      "name": "chaloyeee/auto-stake-sentinel",
+      "url": "https://github.com/chaloyeee/auto-stake-sentinel",
+      "desc": "Auto-Stake & Claim Rewards Bot 2026 \ud83e\udd16 | Free Crypto Tools",
+      "stars": 0,
+      "updated": "2026-09-22T00:29:24Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "auto-stake-sentinel"
+    },
+    {
+      "id": "gh:ghaderhassan38-sudo/interlink-claim-optimizer",
+      "kind": "tooling",
+      "name": "ghaderhassan38-sudo/Interlink-Claim-Optimizer",
+      "url": "https://github.com/ghaderhassan38-sudo/Interlink-Claim-Optimizer",
+      "desc": "\ud83e\udd16 Auto-Claim 2026: Proxy Bot for Airdrops & Secure Multi-Wallet Login",
+      "stars": 0,
+      "updated": "2026-09-22T00:28:21Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "interlink-claim-optimizer"
+    },
+    {
+      "id": "gh:jask177/ekox-claim-assistant",
+      "kind": "tooling",
+      "name": "jask177/ekox-claim-assistant",
+      "url": "https://github.com/jask177/ekox-claim-assistant",
+      "desc": "Ekox Bot Alternative 2026 \ud83e\udd16 | Auto Claim & Yield Tools \ud83d\udd25",
+      "stars": 0,
+      "updated": "2026-09-22T00:26:24Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "ekox-claim-assistant"
+    },
+    {
+      "id": "gh:badawi2023/boxxer-airdrop-automator",
+      "kind": "tooling",
+      "name": "badawi2023/boxxer-airdrop-automator",
+      "url": "https://github.com/badawi2023/boxxer-airdrop-automator",
+      "desc": "\ud83e\udd16 Ultimate Boxxer Airdrop Bot 2026 - Auto-Claim & Scheduler \ud83d\ude80",
+      "stars": 0,
+      "updated": "2026-09-22T00:23:08Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "boxxer-airdrop-automator"
+    },
+    {
+      "id": "gh:rmd122e/dusted-referral-suite",
+      "kind": "tooling",
+      "name": "rmd122e/Dusted-Referral-Suite",
+      "url": "https://github.com/rmd122e/Dusted-Referral-Suite",
+      "desc": "\ud83e\udd16 AI-Powered Crypto Airdrop Bot 2026 - Auto Claim & Referrals \ud83d\ude80",
+      "stars": 1,
+      "updated": "2026-09-22T00:22:50Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "dusted-referral-suite"
+    },
+    {
+      "id": "gh:adealta/humanity-protocol-daily-claimer",
+      "kind": "tooling",
+      "name": "adealta/Humanity-Protocol-Daily-Claimer",
+      "url": "https://github.com/adealta/Humanity-Protocol-Daily-Claimer",
+      "desc": "Humanity Protocol Airdrop Bot 2026 \ud83e\udd16 | Auto-Claim & Daily Rewards Script",
+      "stars": 0,
+      "updated": "2026-09-22T00:20:51Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "humanity-protocol-daily-claimer"
+    },
+    {
+      "id": "gh:abhirajb-debug/acki-nacki-harvester",
+      "kind": "tooling",
+      "name": "AbhirajB-debug/acki-nacki-harvester",
+      "url": "https://github.com/AbhirajB-debug/acki-nacki-harvester",
+      "desc": "\ud83e\udd16 Auto Claim Bots 2026 - Free Crypto Farming Scripts & Tools",
+      "stars": 0,
+      "updated": "2026-09-21T23:53:12Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "acki-nacki-harvester"
+    },
+    {
+      "id": "gh:fearchrist5577/auto-claimer",
+      "kind": "tooling",
+      "name": "Fearchrist5577/Auto-claimer",
+      "url": "https://github.com/Fearchrist5577/Auto-claimer",
+      "desc": "\ud83d\ude80 Automate airdrop claims and token transfers with this easy-to-use desktop app for fast, efficient fund management.",
+      "stars": 2,
+      "updated": "2026-09-21T06:51:33Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "auto-claimer"
+    },
+    {
+      "id": "gh:bitsmith826/auto-claim-rialo-faucet",
+      "kind": "tooling",
+      "name": "bitsmith826/auto-claim-rialo-faucet",
+      "url": "https://github.com/bitsmith826/auto-claim-rialo-faucet",
+      "desc": "Skrip otomatisasi klaim airdrop testnet Rialo Faucet menggunakan arsitektur Multi-Provider SOCKS5 Paralel. Mengambil puluhan ribu proxy SOCKS5 gratis terupdate secara otomatis dan mengeksekusi klaim multi-wallet secara s",
+      "stars": 0,
+      "updated": "2026-09-18T11:34:32Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "auto-claim-rialo-faucet"
+    },
+    {
+      "id": "gh:h4rkl/airdrop-claim-bot",
+      "kind": "tooling",
+      "name": "h4rkl/airdrop-claim-bot",
+      "url": "https://github.com/h4rkl/airdrop-claim-bot",
+      "desc": "Simple open airdrop claim program for Solana",
+      "stars": 6,
+      "updated": "2026-09-07T03:00:23Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "airdrop-claim-bot"
+    },
+    {
+      "id": "gh:erwindobp98/teqoin",
+      "kind": "tooling",
+      "name": "erwindobp98/teqoin",
+      "url": "https://github.com/erwindobp98/teqoin",
+      "desc": "Teqoin Wallet  Start Bot : https://t.me/TeQoin_Wallet_Bot/app?startapp=r_917401265 - Create New Wallet  - Save Pharse - Go To Airdrop Menu - Complete Task & Daily - Done  Claim 1.91$ ETH TestNet Here : https://teqoin.io/",
+      "stars": 1,
+      "updated": "2026-09-09T01:17:59Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "teqoin"
+    },
+    {
+      "id": "gh:thund3rbreath/sixseven-bot",
+      "kind": "tooling",
+      "name": "thund3rbreath/SixSeven-BOT",
+      "url": "https://github.com/thund3rbreath/SixSeven-BOT",
+      "desc": "SixSeven Club (@sixsevenclub_bot) Telegram mini-app farming bot \u2014 quests, daily hit-67 claim, 67 Balling, vault, squads, boosts.",
+      "stars": 4,
+      "updated": "2026-08-17T17:44:32Z",
+      "first_seen": "2026-09-22T02:53:13Z",
+      "slug": "sixseven-bot"
+    },
+    {
+      "id": "io:https://airdrops.io/memebook/",
+      "kind": "drop",
+      "name": "Memebook",
+      "url": "https://airdrops.io/memebook/",
+      "slug": "memebook",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/kryvora-network/",
+      "kind": "drop",
+      "name": "Kryvora Network",
+      "url": "https://airdrops.io/kryvora-network/",
+      "slug": "kryvora network",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/vibe-vibe/",
+      "kind": "drop",
+      "name": "Vibe Vibe",
+      "url": "https://airdrops.io/vibe-vibe/",
+      "slug": "vibe vibe",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/baibai/",
+      "kind": "drop",
+      "name": "BaiBai",
+      "url": "https://airdrops.io/baibai/",
+      "slug": "baibai",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/fables/",
+      "kind": "drop",
+      "name": "Fables",
+      "url": "https://airdrops.io/fables/",
+      "slug": "fables",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/wick/",
+      "kind": "drop",
+      "name": "Wick",
+      "url": "https://airdrops.io/wick/",
+      "slug": "wick",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/worldie/",
+      "kind": "drop",
+      "name": "Worldie",
+      "url": "https://airdrops.io/worldie/",
+      "slug": "worldie",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/blackboard/",
+      "kind": "drop",
+      "name": "Blackboard",
+      "url": "https://airdrops.io/blackboard/",
+      "slug": "blackboard",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/acepyr/",
+      "kind": "drop",
+      "name": "Acepyr",
+      "url": "https://airdrops.io/acepyr/",
+      "slug": "acepyr",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/ammora/",
+      "kind": "drop",
+      "name": "Ammora",
+      "url": "https://airdrops.io/ammora/",
+      "slug": "ammora",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/laptop/",
+      "kind": "drop",
+      "name": "Laptop",
+      "url": "https://airdrops.io/laptop/",
+      "slug": "laptop",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/rep/",
+      "kind": "drop",
+      "name": "REP",
+      "url": "https://airdrops.io/rep/",
+      "slug": "rep",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/vangrid/",
+      "kind": "drop",
+      "name": "Vangrid",
+      "url": "https://airdrops.io/vangrid/",
+      "slug": "vangrid",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/latest/",
+      "kind": "drop",
+      "name": "Find the Latest Airdrops",
+      "url": "https://airdrops.io/latest/",
+      "slug": "latest",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/nado/",
+      "kind": "drop",
+      "name": "Nado",
+      "url": "https://airdrops.io/nado/",
+      "slug": "nado",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/solpump/",
+      "kind": "drop",
+      "name": "SolPump",
+      "url": "https://airdrops.io/solpump/",
+      "slug": "solpump",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/mint-io/",
+      "kind": "drop",
+      "name": "MINT",
+      "url": "https://airdrops.io/mint-io/",
+      "slug": "mint io",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/axis-robotics/",
+      "kind": "drop",
+      "name": "Axis Robotics",
+      "url": "https://airdrops.io/axis-robotics/",
+      "slug": "axis robotics",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/risex/",
+      "kind": "drop",
+      "name": "RISEx",
+      "url": "https://airdrops.io/risex/",
+      "slug": "risex",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/reels/",
+      "kind": "drop",
+      "name": "Reels",
+      "url": "https://airdrops.io/reels/",
+      "slug": "reels",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/flop-labs/",
+      "kind": "drop",
+      "name": "Flop Labs",
+      "url": "https://airdrops.io/flop-labs/",
+      "slug": "flop labs",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/dow-protocol/",
+      "kind": "drop",
+      "name": "Dow Protocol",
+      "url": "https://airdrops.io/dow-protocol/",
+      "slug": "dow protocol",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/ondo-perps/",
+      "kind": "drop",
+      "name": "Ondo Perps",
+      "url": "https://airdrops.io/ondo-perps/",
+      "slug": "ondo perps",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/voice/",
+      "kind": "drop",
+      "name": "VOICE",
+      "url": "https://airdrops.io/voice/",
+      "slug": "voice",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/nowa/",
+      "kind": "drop",
+      "name": "Nowa",
+      "url": "https://airdrops.io/nowa/",
+      "slug": "nowa",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/osero/",
+      "kind": "drop",
+      "name": "Osero",
+      "url": "https://airdrops.io/osero/",
+      "slug": "osero",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/push-chain/",
+      "kind": "drop",
+      "name": "Push Chain",
+      "url": "https://airdrops.io/push-chain/",
+      "slug": "push chain",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/hot/",
+      "kind": "drop",
+      "name": "Find the Hottest Airdrops",
+      "url": "https://airdrops.io/hot/",
+      "slug": "hot",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/okx/",
+      "kind": "drop",
+      "name": "OKX",
+      "url": "https://airdrops.io/okx/",
+      "slug": "okx",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/dawn/",
+      "kind": "drop",
+      "name": "DAWN",
+      "url": "https://airdrops.io/dawn/",
+      "slug": "dawn",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/edgex/",
+      "kind": "drop",
+      "name": "edgeX",
+      "url": "https://airdrops.io/edgex/",
+      "slug": "edgex",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/onchain-cc/",
+      "kind": "drop",
+      "name": "Onchain.cc",
+      "url": "https://airdrops.io/onchain-cc/",
+      "slug": "onchain cc",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/unitflow-finance/",
+      "kind": "drop",
+      "name": "UnitFlow Finance",
+      "url": "https://airdrops.io/unitflow-finance/",
+      "slug": "unitflow finance",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/taiko/",
+      "kind": "drop",
+      "name": "Taiko",
+      "url": "https://airdrops.io/taiko/",
+      "slug": "taiko",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/jumper-exchange/",
+      "kind": "drop",
+      "name": "Jumper Exchange",
+      "url": "https://airdrops.io/jumper-exchange/",
+      "slug": "jumper exchange",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/opensea/",
+      "kind": "drop",
+      "name": "OpenSea",
+      "url": "https://airdrops.io/opensea/",
+      "slug": "opensea",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/cambria/",
+      "kind": "drop",
+      "name": "Cambria",
+      "url": "https://airdrops.io/cambria/",
+      "slug": "cambria",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/ritual/",
+      "kind": "drop",
+      "name": "Ritual",
+      "url": "https://airdrops.io/ritual/",
+      "slug": "ritual",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/extended/",
+      "kind": "drop",
+      "name": "Extended",
+      "url": "https://airdrops.io/extended/",
+      "slug": "extended",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/base/",
+      "kind": "drop",
+      "name": "Base",
+      "url": "https://airdrops.io/base/",
+      "slug": "base",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    },
+    {
+      "id": "io:https://airdrops.io/stay-safe/",
+      "kind": "drop",
+      "name": "Stay safe",
+      "url": "https://airdrops.io/stay-safe/",
+      "slug": "stay safe",
+      "desc": "",
+      "first_seen": "2026-09-22T02:58:17Z"
+    }
+  ],
+  "last_scan": "2026-09-22T06:26:14Z"
+}
